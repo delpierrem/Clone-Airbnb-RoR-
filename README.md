@@ -2,7 +2,7 @@
 
 Clone de AIRBNB
 * Ruby version
-
+  ruby '2.3.3'
 * System dependencies
 
 * Configuration
