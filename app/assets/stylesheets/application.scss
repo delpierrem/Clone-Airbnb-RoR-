@@ -15,22 +15,7 @@
 */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
-.avatar-small {
-  width: 28px;
-}
-
-.avatar-medium {
-  width: 48px;
-}
-
-.avatar-large {
-  width: 68px;
-}
-
-.avatar-full {
-  width: 100%;
-}
+@import "toastr";
 
 body {
   color: #565a5c;
@@ -109,106 +94,122 @@ body {
 }
 .form-group {
 
- margin-bottom: 25px;
+  margin-bottom: 25px;
 
- }
+}
 
 
 .form-control {
 
- border-radius: 2px;
+  border-radius: 2px;
 
- height: 4rem;
+  height: 4rem;
 
- }
+}
 
 
 .sidebar-list {
 
- padding-left: 0;
+  padding-left: 0;
 
- list-style: none;
+  list-style: none;
 
- }
+}
 
 
 .sidebar-item {
 
- padding: 10px 0;
+  padding: 10px 0;
 
- font-size: 16px;
+  font-size: 16px;
 
- color: #82888a;
+  color: #82888a;
 
- border-bottom: 1px solid #CCC;
+  border-bottom: 1px solid #CCC;
 
- }
+}
 
 
 .sidebar-link {
 
- color: #82888a;
+  color: #82888a;
 
- text-decoration: none;
+  text-decoration: none;
 
- }
+}
 
 
 .sidebar-link:hover, .sidebar-link:focus {
 
- color: #cacccd;
+  color: #cacccd;
 
- text-decoration: none;
+  text-decoration: none;
 
- }
+}
 
 
 .active.sidebar-link {
 
- color: #565a5c;
+  color: #565a5c;
 
- font-weight: bold;
+  font-weight: bold;
 
- text-decoration: none;
+  text-decoration: none;
 
- }
+}
 
 
 .btn-file {
 
- position: relative;
+  position: relative;
 
- overflow: hidden;
+  overflow: hidden;
 
- }
+}
 
 
 .btn-file input[type=file] {
 
- position: absolute;
+  position: absolute;
 
- top: 0;
+  top: 0;
 
- right: 0;
+  right: 0;
 
- min-width: 100%;
+  min-width: 100%;
 
- min-height: 100%;
+  min-height: 100%;
 
- font-size: 100px;
+  font-size: 100px;
 
- text-align: right;
+  text-align: right;
 
- filter: alpha(opacity=0);
+  filter: alpha(opacity=0);
 
- opacity: 0;
+  opacity: 0;
 
- outline: none;
+  outline: none;
 
- background: white;
+  background: white;
 
- cursor: inherit;
+  cursor: inherit;
 
- display: block;
+  display: block;
 
- }
+}
+
+.avatar-small {
+  width: 28px;
+}
+
+.avatar-medium {
+  width: 48px;
+}
+
+.avatar-large {
+  width: 68px;
+}
+
+.avatar-full {
+  width: 100%;
+}
