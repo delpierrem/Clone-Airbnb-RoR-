@@ -12,9 +12,9 @@
 //
 //= require jquery
 //= require bootstrap-sprockets
+//= require jquery-ui
 //= require jquery_ujs
 //= require toastr
-//= require turbolinks
 //= require_tree .
 
 // options for notification
