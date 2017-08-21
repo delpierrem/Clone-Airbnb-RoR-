@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :photos
   resources :rooms , path:'annonces' do
+    resources :reviews, only: [:create, :destroy]
     resources :reservations, only: [:create]
   end
 
