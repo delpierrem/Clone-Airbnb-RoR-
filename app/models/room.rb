@@ -1,7 +1,7 @@
 class Room < ApplicationRecord
   belongs_to :user
   has_many :photos
-  
+
   validates :home_type, presence: true  #la variable type d’habitation sera nécessaire pour la création d’une annonce
   validates :room_type, presence: true
   validates :accommodate, presence: true
@@ -11,4 +11,8 @@ class Room < ApplicationRecord
   validates :summary, presence: true, length: {maximum: 600}
   validates :address, presence: true
   validates :price, numericality: { only_integer: true, greater_than: 5 } #seulement des nombres entiers supérieurs à 5
+
+  # Nous devons préciser à geocoder quelle variable il va utiliser pour google maps dans room.rb:
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 end
