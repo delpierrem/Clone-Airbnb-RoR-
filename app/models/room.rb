@@ -2,6 +2,7 @@ class Room < ApplicationRecord
   belongs_to :user
   has_many :photos
   has_many :reservations
+  has_many :reviews
 
   validates :home_type, presence: true  #la variable type d’habitation sera nécessaire pour la création d’une annonce
   validates :room_type, presence: true
@@ -16,4 +17,8 @@ class Room < ApplicationRecord
   # Nous devons préciser à geocoder quelle variable il va utiliser pour google maps dans room.rb:
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
+
+  def average_rating
+    reviews.count == 0 ? 0 : reviews.average(:star).round(2)
+  end
 end
