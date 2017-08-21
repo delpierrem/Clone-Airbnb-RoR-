@@ -55,130 +55,147 @@
         </div>
       </div>
       <div class="col-md-4">
-      <%= render 'reservations/form' %>
+        <%= render 'reservations/form' %>
+      </div>
     </div>
-  </div>
 
-  <!-- Description -->
-  <div class="row">
-    <div class="col-md-12">
-      <h2>A propos de ce logement</h2>
-      <p><%= @room.summary %></p>
+    <!-- Description -->
+    <div class="row">
+      <div class="col-md-12">
+        <h2>A propos de ce logement</h2>
+        <p><%= @room.summary %></p>
+      </div>
     </div>
-  </div>
 
-  <!-- Equipements -->
-  <div class="row">
-    <div class="col-md-2">
-      <p>Equipements</p>
-    </div>
-    <div class="col-md-10">
-      <div class="row">
-        <div class="col-md-6">
-          <ul class="equipments">
-            <li class="<%= 'text-line-through' if !@room.is_wifi %>">Wifi</li>
-            <li class="<%= 'text-line-through' if !@room.is_tv %>">Télévision</li>
-            <li class="<%= 'text-line-through' if !@room.is_closet %>">Penderie/Commode</li>
-            <li class="<%= 'text-line-through' if !@room.is_shampoo %>">Shampoing</li>
-          </ul>
-        </div>
-        <div class="col-md-6">
-          <ul class="equipments">
-            <li class="<%= 'text-line-through' if !@room.is_kitchen %>">Cuisine</li>
-            <li class="<%= 'text-line-through' if !@room.is_breakfast %>">Petit déjeuner</li>
-            <li class="<%= 'text-line-through' if !@room.is_heating %>">Chauffage</li>
-            <li class="<%= 'text-line-through' if !@room.is_air %>">Climatisation</li>
-          </ul>
+    <!-- Equipements -->
+    <div class="row">
+      <div class="col-md-2">
+        <p>Equipements</p>
+      </div>
+      <div class="col-md-10">
+        <div class="row">
+          <div class="col-md-6">
+            <ul class="equipments">
+              <li class="<%= 'text-line-through' if !@room.is_wifi %>">Wifi</li>
+              <li class="<%= 'text-line-through' if !@room.is_tv %>">Télévision</li>
+              <li class="<%= 'text-line-through' if !@room.is_closet %>">Penderie/Commode</li>
+              <li class="<%= 'text-line-through' if !@room.is_shampoo %>">Shampoing</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <ul class="equipments">
+              <li class="<%= 'text-line-through' if !@room.is_kitchen %>">Cuisine</li>
+              <li class="<%= 'text-line-through' if !@room.is_breakfast %>">Petit déjeuner</li>
+              <li class="<%= 'text-line-through' if !@room.is_heating %>">Chauffage</li>
+              <li class="<%= 'text-line-through' if !@room.is_air %>">Climatisation</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- Carousel -->
-  <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <% if @photos %>
-        <% @photos.each do |photo| %>
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="<%= photo.id %>" class="active"></li>
-        </ol>
-        <% end %>
-        <% end %>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
+    <!-- Carousel -->
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
           <% if @photos %>
           <% @photos.each do |photo| %>
-          <div class="item <%= 'active' if photo.id == @photos[0].id %>">
-            <%= image_tag photo.image.url() %>
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="<%= photo.id %>" class="active"></li>
+          </ol>
+          <% end %>
+          <% end %>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <% if @photos %>
+            <% @photos.each do |photo| %>
+            <div class="item <%= 'active' if photo.id == @photos[0].id %>">
+              <%= image_tag photo.image.url() %>
+            </div>
+            <% end %>
+            <% end %>
           </div>
-          <% end %>
-          <% end %>
-        </div>
 
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-          <span class="sr-only">Précédent</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">Suivant</span>
-        </a>
-      </div>
-    </div>
-  </div>
-  <!-- Google maps -->
-  <div class="row">
-    <div class="col-md-12">
-      <div id="map"></div>
-      <style>
-      #map {
-        height: 400px;
-        width: 100%;
-      }
-      </style>
-      <script>
-      function initMap() {
-        var uluru = {lat: <%= @room.latitude %>, lng: <%= @room.longitude %>};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
-      </script>
-      <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAu8BSeprv_wUAY7JTMhF4qO-bcxaK_lzU&callback=initMap">
-      </script>
-    </div>
-  </div>
-
-  <!-- Logements à proximité -->
-  <h3>A proximité...</h3>
-  <div class="row">
-    <% for room in @room.nearbys(2).limit(3) %>
-    <!-- #situé à 2 miles environ 3 km et limité à 3 annonces -->
-    <div class="col-md-4">
-      <div class="panel panel-default">
-        <div class="panel-heading preview">
-          <%= image_tag room.photos[0].image.url(:medium) if room.photos.length > 0 %>
-        </div>
-        <div class="panel-body">
-          <%= link_to room.listing_name, room %><br>
-          (à <%= (room.distance*1.6).round(2) %> km)
+          <!-- Left and right controls -->
+          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Précédent</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Suivant</span>
+          </a>
         </div>
       </div>
     </div>
-    <% end %>
+
+    <!-- Reviews -->
+
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Commentaires <%= @room.average_rating %> (<%= @reviews.count %>)</h3>
+        <div class="container">
+          <div>
+            <%= render 'reviews/form' if @booked && !@hasReview %>
+            <!-- # le formulaire apparait seulement si l’utilisateur a déjà reservé des dates sur ce logement et s’il n’a pas déjà note celui-ci… -->
+          </div>
+          <div>
+            <%= render 'reviews/list' %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Google maps -->
+    <div class="row">
+      <div class="col-md-12">
+        <div id="map"></div>
+        <style>
+        #map {
+          height: 400px;
+          width: 100%;
+        }
+        </style>
+        <script>
+        function initMap() {
+          var uluru = {lat: <%= @room.latitude %>, lng: <%= @room.longitude %>};
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            center: uluru
+          });
+          var marker = new google.maps.Marker({
+            position: uluru,
+            map: map
+          });
+        }
+        </script>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAu8BSeprv_wUAY7JTMhF4qO-bcxaK_lzU&callback=initMap">
+        </script>
+      </div>
+    </div>
+
+    <!-- Logements à proximité -->
+    <h3>A proximité...</h3>
+    <div class="row">
+      <% for room in @room.nearbys(2).limit(3) %>
+      <!-- #situé à 2 miles environ 3 km et limité à 3 annonces -->
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading preview">
+            <%= image_tag room.photos[0].image.url(:medium) if room.photos.length > 0 %>
+          </div>
+          <div class="panel-body">
+            <%= link_to room.listing_name, room %><br>
+            (à <%= (room.distance*1.6).round(2) %> km)
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+
+
+    <!-- fin des rows -->
   </div>
-
-
-
-  <!-- fin des rows -->
-</div>
 </div>
