@@ -15,4 +15,8 @@ Rails.application.routes.draw do
   get '/your_trips' => 'reservations#your_trips' , path:'mes_voyages'
   get '/search' => 'pages#search'
 
+  resources :conversations, only: [:index, :create] do
+    resources :messages, only: [:index, :create]
+  end
+  
 end
