@@ -308,43 +308,52 @@ input[type="checkbox"]:checked:before {
 }
 
 .home-link a, p{
-     color: #82888a;
-     text-decoration: none;
- }
+  color: #82888a;
+  text-decoration: none;
+}
 
 
 .home-link:hover a, .home-link:focus a {
-     color: #82888a;
-     text-decoration: none;
- }
+  color: #82888a;
+  text-decoration: none;
+}
 
- #wrapper {
-      width:960px;
-      margin:0 auto;
- }
+#wrapper {
+  width:960px;
+  margin:0 auto;
+}
 
 #sidebar {
-      float:right;
-      width:340px;
- }
+  float:right;
+  width:340px;
+}
 
 #sidebar #widget {
-      width:340px;
-      height: 600px;
-      margin-bottom:10px;
-      border-bottom:1px solid #ccc;
- }
+  width:340px;
+  height: 600px;
+  margin-bottom:10px;
+  border-bottom:1px solid #ccc;
+}
 
 #article {
-      width:560px;
- }
- 
- .search { position: relative; }
-  .search input { text-indent: 30px;}
-  .search .fa-search {
-      position: absolute;
-      top: 12px;
-      left: 7px;
-      font-size: 15px;
-      opacity: 0.5;
-  }
+  width:560px;
+}
+
+.search { position: relative; }
+.search input { text-indent: 30px;}
+.search .fa-search {
+  position: absolute;
+  top: 12px;
+  left: 7px;
+  font-size: 15px;
+  opacity: 0.5;
+}
+
+.conversation {
+  color: #7f7f7f;
+  padding: 10px;
+}
+
+.conversation:hover, .conversation:focus {
+  background-color: #F4F4F5;
+}
