@@ -2,7 +2,8 @@
   <div class="col-md-3 text-center">
     <%= image_tag avatar_url(@other), class: "img-circle avatar-medium" %><br>
     <strong><%= @other.fullname %></strong>
-    <%= link_to "Voir profil", @other, class: "btn btn-default wide" %> #lien vers le profil de other
+    <!-- #lien vers le profil de other -->
+    <%= link_to "Voir profil", @other, class: "btn btn-default wide" %> 
   </div>
 
   <div class="col-md-9">
@@ -13,7 +14,7 @@
 
       <div class="panel-body">
         <div class="container">
-          <%= form_for [@conversation, @conversation.messages.new] do |f| %>
+          <%= form_for [@conversation, @conversation.messages.new], remote: true do |f| %>
           <div class="form-group">
             <%= f.text_area :content, placeholder: "Votre message...", class: "form-control" %>
           </div>
@@ -27,8 +28,8 @@
     </div>
 
     <div id="chat">
-      <%= render 'messages' %>
+      <%= render @messages, locals:{conversation: @conversation} %>
     </div>
-    
+
   </div>
 </div>
