@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, :path =>'',
   :path_names=>{:sign_in => 'login',:sign_out => 'logout',:edit => "profile"},
-  :controllers => {:registrations => 'registrations' }
+  :controllers => {:registrations => 'registrations',:confirmations => 'confirmations' }
   root 'pages#home'
   resources :users, only: [:show]
   resources :photos
@@ -18,5 +18,5 @@ Rails.application.routes.draw do
   resources :conversations, only: [:index, :create] do
     resources :messages, only: [:index, :create]
   end
-  
+
 end
