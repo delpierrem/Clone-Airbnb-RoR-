@@ -15,9 +15,10 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require toastr
+//= require rails-timeago-all
 //= require_tree .
 
 // options for notification
 toastr.options = {
- "positionClass": "toast-bottom-right"
- }
+  "positionClass": "toast-bottom-right"
+}
